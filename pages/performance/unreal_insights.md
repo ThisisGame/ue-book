@@ -10,5 +10,3 @@
 
 在Window->Profiler(Unreal Insights) 可以快捷打开。
 
-在Standalone启动游戏后，Profiler会自动打开。
-

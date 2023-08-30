@@ -1,0 +1,50 @@
+{
+    "plugins":[
+        "expandable-chapters",
+        "tbfed-pagefooter",
+        "splitter",
+        "lightbox",
+        "anchor-navigation-ex",
+        "katex",
+        "search-pro",
+        "code",
+        "github"],
+    "pluginsConfig":{
+        "theme-default": {
+            "showLevel": false
+        },
+        "tbfed-pagefooter":{
+            "copyright":"Copyright &copy captainchen",
+            "modify_format":"YYYY-MM-DD HH:mm:ss"
+        },
+        "anchor-navigation-ex": {
+            "showLevel": false,
+            "showGoTop": false
+        },
+        "code": {
+            "copyButtons": true
+        },
+        "github": {
+            "url": "https://github.com/ThisisGame/cpp-game-engine-book"
+        }
+    },
+    "openresty":{
+        "zh":{
+            "bookName":"游戏引擎 浅入浅出",
+            "codeResourcesDownloadUrl":"https://github.com/ThisisGame/cpp-game-engine-book",
+            "githubRepositoryUrl":"https://github.com/ThisisGame/cpp-game-engine-book",
+            "beginNotice":"\n```text \n「游戏引擎 浅入浅出」是一本开源电子书，PDF/随书代码/资源下载： https://github.com/ThisisGame/cpp-game-engine-book \n```",
+            "beginNoticeShowConditionNeedLineNum":10,
+            "antiCollectorAdTxt":"<a id=\"antiCollectorAdTxt\" href=\"https://github.com/ThisisGame/cpp-game-engine-book\">「游戏引擎 浅入浅出」是一本开源电子书，PDF/随书代码/资源下载： https://github.com/ThisisGame/cpp-game-engine-book</a>"
+        },
+        "en":{
+            "bookName":"cpp-game-engine-book",
+            "codeResourcesDownloadUrl":"https://github.com/ThisisGame/cpp-game-engine-book",
+            "githubRepositoryUrl":"https://github.com/ThisisGame/cpp-game-engine-book",
+            "beginNotice":"\n```text \n「游戏引擎 浅入浅出」是一本开源电子书，PDF/随书代码/资源下载： https://github.com/ThisisGame/cpp-game-engine-book \n```",
+            "beginNoticeShowConditionNeedLineNum":10,
+            "antiCollectorAdTxt":"<a id=\"antiCollectorAdTxt\" href=\"https://github.com/ThisisGame/cpp-game-engine-book\">「游戏引擎 浅入浅出」是一本开源电子书，PDF/随书代码/资源下载： https://github.com/ThisisGame/cpp-game-engine-book</a>"
+        }
+        
+    }
+}
