@@ -1,4 +1,6 @@
-## 10.1 UnrealInights网络架构
+## 1.1 UnrealInights网络架构
+
+### 1.性能数据收集流程
 
 UnrealInsights是基于Trace框架的，原理其实很简单，在需要统计的代码段开始和结束记录一个时间，就可以计算到这段代码的耗时。
 
@@ -30,6 +32,9 @@ void FCpuProfilerTrace::OutputBeginEvent(uint32 SpecId)
 2. 打开UnrealInsights后，首先看到的是Session Browser，它向Server请求所有历史Session信息。
 
 3. 双击打开一个Session后，向Server请求Session的所有统计事件，并绘制到Profiler。
+
+
+### 2.网络结构
 
 UnrealInsights框架分为3个部分：
 
