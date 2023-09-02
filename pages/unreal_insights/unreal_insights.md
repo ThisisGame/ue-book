@@ -6,6 +6,11 @@
 
 比较少人知道有Unreal Insights这么个东西。
 
+```bash
+官方文档：https://docs.unrealengine.com/4.27/zh-CN/TestingAndOptimization/PerformanceAndProfiling/UnrealInsights/Overview/
+```
+
+
 ### 1.关于Profiler
 
 所谓Profiler，核心就是对一个范围内的代码进行统计计数，CPU Profiler就是统计开始执行前的时间，结束的时间，然后相减就得到逻辑代码的耗时。
