@@ -6,6 +6,8 @@ https://dev.epicgames.com/documentation/zh-cn/unreal-engine/build-configuration-
 
 https://www.cnblogs.com/sbfhy/p/13046658.html
 
+https://blog.csdn.net/cjw_soledad/article/details/117362397 原理以及修改
+
 自带了FastBuild，在D:\UnrealEngine\Engine\Extras\ThirdPartyNotUE\FASTBuild\Win64目录里
 
 FBuild.exe是主机编辑任务使用的任务分发工具，比如我在一台垃圾电脑上，配置了UnrealBuildTools使用FastBuild，那么在垃圾电脑上编译时，就会执行FBuild.exe。
