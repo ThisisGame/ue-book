@@ -1,20 +1,10 @@
 ## FastBuild分布式编译
 
-参考了以下教程：
-
-  https://blueroses.top/2021/11/04/shi-yong-fastbuild-jia-kuai-unrealengine-bian-yi-su-du/
-
-  https://dev.epicgames.com/documentation/zh-cn/unreal-engine/build-configuration-for-unreal-engine?application_version=5.4
-
-  https://www.cnblogs.com/sbfhy/p/13046658.html
-
-  https://blog.csdn.net/cjw_soledad/article/details/117362397
-
-UE4.27是官方集成了FastBuild的，并且提供了FastBuild的可执行文件，在D:\UnrealEngine\Engine\Extras\ThirdPartyNotUE\FASTBuild\Win64目录里。
+UE4.27是官方集成了FastBuild的，并且提供了FastBuild的可执行文件，在`D:\UnrealEngine\Engine\Extras\ThirdPartyNotUE\FASTBuild\Win64`目录里。
 
 我们无需再去对FastBuild做任何修改。
 
-本篇在Windows上来实战使用FastBuild分布式编译UE4。
+本篇在Windows上来实战使用FastBuild分布式编译UE4.27。
 
 下面是机器配置：
 
@@ -58,10 +48,9 @@ FBuild.exe是主机编辑任务使用的任务分发工具.
 
 主机开始编译后，就会去环境变量的 FASTBUILD_BROKERAGE_PATH 配置的共享文件夹，查找有哪些文件，就知道了有哪些肉鸡，就会去连接，发送源码到肉鸡去编译。
 
+下面开始实战。
 
-### 2. 实战分布式编译
-
-#### 1. 创建共享文件夹
+### 2. 创建共享文件夹
 
 从上面的介绍知道，需要创建一个共享文件夹，让主机和肉鸡都可以访问到。
 
@@ -77,13 +66,17 @@ FBuild.exe是主机编辑任务使用的任务分发工具.
 
 ![](../../imgs/fast_build/share_folder_url.jpg)
 
-#### 2. 肉鸡配置环境变量
+配置共享文件夹之后，需要在高级共享设置里开启网络发现以及关闭访问密码，如下图配置。
+
+![](../../imgs/fast_build/enable_network_find.jpg)
+
+### 3. 肉鸡配置环境变量
 
 在肉鸡中配置系统环境变量`FASTBUILD_BROKERAGE_PATH`指向这个共享文件夹。
 
 ![](../../imgs/fast_build/share_folder_env.jpg)
 
-#### 3. 肉鸡运行FBuildWorker
+### 4. 肉鸡运行FBuildWorker
 
 在肉鸡上启动FBuildWorker。
 
@@ -96,16 +89,40 @@ C:\Users\Administrator>netstat -an |findstr 31264
   TCP    0.0.0.0:31264          0.0.0.0:0              LISTENING
 ```
 
-#### 4. 肉鸡关闭防火墙
+### 5. 肉鸡关闭防火墙
 
 ![](../../imgs/fast_build/close_defender.jpg)
 
 至此肉鸡已经准备完毕。
 
-#### 5. 主机配置环境变量
+### 6. 主机配置环境变量
 
-在主机文件夹地址中输入这个共享文件夹地址，查看是否能访问成功，成功则继续。
+主机需要在高级共享设置里开启网络发现以及关闭访问密码，如下图配置。
+
+![](../../imgs/fast_build/enable_network_find.jpg)
+
+然后文件夹地址中输入共享文件夹地址，查看是否能访问成功，成功则继续。
 
 在主机中配置系统环境变量`FASTBUILD_BROKERAGE_PATH`指向共享文件夹。
 
 ![](../../imgs/fast_build/share_folder_env.jpg)
+
+### 7. 编译
+
+打开VS，编译UE4项目，过一会儿可以看到肉鸡的FBuildWorker上显示了每个核心当前正在编译的任务，肉鸡CPU也满载。
+
+![](../../imgs/fast_build/fast_building.jpg)
+
+### 8. 参考
+
+本文参考了以下教程：
+
+```sh
+https://blueroses.top/2021/11/04/shi-yong-fastbuild-jia-kuai-unrealengine-bian-yi-su-du/
+
+https://dev.epicgames.com/documentation/zh-cn/unreal-engine/build-configuration-for-unreal-engine?application_version=5.4
+
+https://www.cnblogs.com/sbfhy/p/13046658.html
+
+https://blog.csdn.net/cjw_soledad/article/details/117362397
+```
