@@ -61,6 +61,51 @@ FBuild.exe是主机编辑任务使用的任务分发工具.
 
 ### 2. 实战分布式编译
 
-从上面的介绍知道，需要创建一个共享文件夹，让工作机和肉鸡都可以访问到。
+#### 1. 创建共享文件夹
 
-然后在工作机和肉鸡中都配置系统环境变量`FASTBUILD_BROKERAGE_PATH`指向这个共享文件夹。
+从上面的介绍知道，需要创建一个共享文件夹，让主机和肉鸡都可以访问到。
+
+这个共享文件夹放到任意一台电脑上都可以，只要能够访问到，并不要求是主机或肉鸡。
+
+为了方便，这里就在肉鸡上创建。
+
+![](../../imgs/fast_build/create_share_dir.jpg)
+
+注意添加`EveryOne`，并且给`读取/写入权限`。
+
+创建好共享文件夹后，复制网络地址。
+
+![](../../imgs/fast_build/share_folder_url.jpg)
+
+#### 2. 肉鸡配置环境变量
+
+在肉鸡中配置系统环境变量`FASTBUILD_BROKERAGE_PATH`指向这个共享文件夹。
+
+![](../../imgs/fast_build/share_folder_env.jpg)
+
+#### 3. 肉鸡运行FBuildWorker
+
+在肉鸡上启动FBuildWorker。
+
+![](../../imgs/fast_build/fbuildworker.jpg)
+
+输入下面命令来看下监听端口是否成功。
+
+```bash
+C:\Users\Administrator>netstat -an |findstr 31264
+  TCP    0.0.0.0:31264          0.0.0.0:0              LISTENING
+```
+
+#### 4. 肉鸡关闭防火墙
+
+![](../../imgs/fast_build/close_defender.jpg)
+
+至此肉鸡已经准备完毕。
+
+#### 5. 主机配置环境变量
+
+在主机文件夹地址中输入这个共享文件夹地址，查看是否能访问成功，成功则继续。
+
+在主机中配置系统环境变量`FASTBUILD_BROKERAGE_PATH`指向共享文件夹。
+
+![](../../imgs/fast_build/share_folder_env.jpg)
