@@ -4,7 +4,7 @@ UE4.27是官方集成了FastBuild的，并且提供了FastBuild的可执行文�
 
 我们无需再去对FastBuild做任何修改。
 
-本篇在Windows上来实战使用FastBuild分布式编译UE4.27。
+本篇在Windows上来实战使用FastBuild分布式编译UE4.27中的Unreal Insights项目。
 
 下面是机器配置：
 
@@ -13,6 +13,16 @@ UE4.27是官方集成了FastBuild的，并且提供了FastBuild的可执行文�
 |GPD Pocket3   | 台式机  |
 |N6000@1.1GHz 4Core 4Thread |E5-2680 v3@2.5Ghz x2 24Core 48Thread|
 |8GB|32GB|
+
+编译时间对比:
+
+![](../../imgs/fast_build/p3_fast_build_time_unreal_insights.jpg)
+
+可以看到，当主机很垃圾，而有其他的很强肉鸡参与分布式编译时，可以有多倍的提速。
+
+另外它比较吃网速，这也是分布式编译的基操了，千兆是必须的，我在Wifi环境下测试的，仅供参考。
+
+![](../../imgs/fast_build/network_use.jpg)
 
 
 ### 1. FastBuild介绍
