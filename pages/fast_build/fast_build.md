@@ -22,7 +22,11 @@ UE4.27是官方集成了FastBuild的，并且提供了FastBuild的可执行文�
 
 另外它比较吃网速，这也是分布式编译的基操了，千兆是必须的，我在Wifi环境下测试的，仅供参考。
 
+(更新:两台电脑千兆直连后降低到230s)
+
 ![](../../imgs/fast_build/network_use.jpg)
+
+
 
 
 ### 1. FastBuild介绍
@@ -118,6 +122,17 @@ C:\Users\Administrator>netstat -an |findstr 31264
 ![](../../imgs/fast_build/share_folder_env.jpg)
 
 ### 7. 编译
+
+修改UE4编译配置，增加`bAllowFASTBuild`值。
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns="https://www.unrealengine.com/BuildConfiguration">
+    <BuildConfiguration>
+        <bAllowFASTBuild>true</bAllowFASTBuild>
+    </BuildConfiguration>
+</Configuration>
+```
 
 打开VS，编译UE4项目，过一会儿可以看到肉鸡的FBuildWorker上显示了每个核心当前正在编译的任务，肉鸡CPU也满载。
 
