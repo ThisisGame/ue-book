@@ -117,7 +117,7 @@ C:\Users\Administrator>netstat -an |findstr 31264
 
 ### 7. 编译
 
-修改UE4编译配置，增加`bAllowFASTBuild`值。
+在`BuildConfiguration.xml`中修改UE4编译配置，增加`bAllowFASTBuild`值。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -128,6 +128,14 @@ C:\Users\Administrator>netstat -an |findstr 31264
 </Configuration>
 ```
 
+有两个文件：
+
+```
+C:\Users\Administrator\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+
+Engine/Saved/UnrealBuildTool/BuildConfiguration.xml
+```
+  
 打开VS，编译UE4项目，过一会儿可以看到肉鸡的FBuildWorker上显示了每个核心当前正在编译的任务，肉鸡CPU也满载。
 
 ![](../../imgs/fast_build/fast_building.jpg)

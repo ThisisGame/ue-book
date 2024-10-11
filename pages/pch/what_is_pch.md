@@ -51,3 +51,32 @@ public class YourProjectTarget : TargetRules
 Replace `YourProjectTarget` with the actual name of your project.
 
 Remember to recompile your project after making these changes.
+
+ThisisGame: how close all module pch?
+
+GitHub Copilot: To disable precompiled headers (PCH) for all modules in Unreal Engine 4 (UE4), you can modify the build configuration in the `.Target.cs` file of your project. Here's how you can do it:
+
+1. Open the `.Target.cs` file for your project.
+2. Set `bUsePCHFiles` to `false`.
+
+Here's an example of what the code might look like:
+
+```csharp
+public class YourProjectTarget : TargetRules
+{
+    public YourProjectTarget(TargetInfo Target) : base(Target)
+    {
+        Type = TargetType.Game;
+        DefaultBuildSettings = BuildSettingsVersion.V2;
+        bUsePCHFiles = false;
+
+        // Other configuration settings...
+    }
+}
+```
+
+Please note that disabling PCHs can significantly increase your compile times, as the compiler will need to parse all included headers for each source file, instead of just loading the precompiled headers. It's generally recommended to use PCHs unless you have a specific reason not to.
+
+Next steps:
+- Verify the impact on compile times after disabling PCHs.
+- Consider other optimization techniques if compile times are too long.
